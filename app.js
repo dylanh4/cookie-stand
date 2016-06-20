@@ -1,66 +1,193 @@
 // Cookies needed per location projections
 
-/*
-1. Stores the min/max hourly customers, and the average cookies per customer, in object properties
-2. Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-3. Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
-4. Store the results for each location in a separate array... perhaps as a property of the object representing that location
-5. Display the values of each array as unordered lists in the browser
-6. Calculating the sum of these hourly totals
-*/
-
-// General  - Cookie Projections
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm', '7pm', '8pm'];
 
+// First and Pike Cookies Projection
 var firstAndPike = {
-// Standard info given for each location
-  minCust: 23,
-  maxCust: 65,
-  avgCookiesPerCust: 6.3,
-  hourlyCustomers: [],
-  hourlySales: []
+  minCustPike: 23,
+  maxCustPike: 65,
+  avgCookiesPerCustPike: 6.3,
+  hourlyCustomersPike: [],
+  hourlySalesPike: []
 };
-// method to generate random number of customers per hour
-// store number of customers per hour in hourlyCustomers
-var randomCust = function() {
-  return (Math.floor(Math.random() * (firstAndPike.maxCust - firstAndPike.minCust + 1)) + firstAndPike.minCust);
+// method to generate random number of customers per hour and store number of customers per hour in hourlyCustomersPike
+var randomCustPike = function() {
+  return (Math.floor(Math.random() * (firstAndPike.maxCustPike - firstAndPike.minCustPike + 1)) + firstAndPike.minCustPike);
 };
 
-var custThatHour = function() {
+var custThatHourPike = function() {
   for(var i = 0; i < hours.length; i++) {
-    firstAndPike.hourlyCustomers[i] = randomCust();
+    firstAndPike.hourlyCustomersPike[i] = randomCustPike();
   }
-  console.log(firstAndPike.hourlyCustomers);
+  console.log(firstAndPike.hourlyCustomersPike);
 };
 
-custThatHour();
+custThatHourPike();
 
-// Another option to fill hourlyCustomers is by using push
-    //firstAndPike.hourlyCustomers.push(randomCust());
+// Another option to fill hourlyCustomersPike is by using push
+    //firstAndPike.hourlyCustomersPike.push(randomCustPike());
 
-// Calculate and store number of cookies purchased for a single hour
-// stores number of cookies sold per hour in hourlySales
-var cookiesSoldThatHour = function () {
+// Calculate and store number of cookies purchased for a single hour and storer number of cookies sold per hour in hourlySalesPike
+var cookiesSoldThatHourPike = function () {
   for(var i = 0; i < hours.length; i++) {
-    firstAndPike.hourlySales.push(firstAndPike.avgCookiesPerCust * firstAndPike.hourlyCustomers[i]);
+    firstAndPike.hourlySalesPike.push(firstAndPike.avgCookiesPerCustPike * firstAndPike.hourlyCustomersPike[i]);
   }
-  console.log(firstAndPike.hourlySales);
+  console.log(firstAndPike.hourlySalesPike);
 };
 
-cookiesSoldThatHour();
+cookiesSoldThatHourPike();
 
-// Display the values of each array as unordered lists in the browser
-
-firstAndPike.listSales = function() {
+// Display the values of each Pike array as unordered lists in the browser
+firstAndPike.listSalesPike = function() {
   var pikeID = document.getElementById('pikeID');
   for (var i = 0; i < hours.length; i++) {
-    console.log(firstAndPike.hourlySales[i]);
+    console.log(firstAndPike.hourlySalesPike[i]);
     var listItem = document.createElement('li');
-    listItem.textContent = firstAndPike.hourlySales[i];
+    listItem.textContent = hours[i] + ': ' + Math.round(firstAndPike.hourlySalesPike[i]) + ' cookies';
     pikeID.appendChild(listItem);
   }
 };
 
-firstAndPike.listSales();
-// firstAndPike.hourlyCustomers.push(anElement) = function() {
-//   for(var j = 0; j < firstAndPike.hours.length; j++) {
+firstAndPike.listSalesPike();
+
+firstAndPike.totalSales = 0;
+
+for (var i = 0; i < hours.length; i++) {
+  firstAndPike.totalSales += firstAndPike.hourlySalesPike[i];
+};
+
+var listItem = document.createElement('li');
+listItem.textContent = 'Total: ' + Math.round(firstAndPike.totalSales) + ' cookies';
+pikeID.appendChild(listItem);
+
+console.log(firstAndPike.totalSales);
+
+// // //
+// // // //
+// // // //
+// // //
+
+// SeaTac Cookies Projection
+var seaTac = {
+  minCustSeaTac: 3,
+  maxCustSeaTac: 24,
+  avgCookiesPerCustSeaTac: 1.2,
+  hourlyCustomerSeaTac: [],
+  hourlySalesSeaTac: []
+};
+// method to generate random number of customers per hour and store number of customers per hour in hourlyCustomerSeaTac
+var randomCustSeaTac = function() {
+  return (Math.floor(Math.random() * (seaTac.maxCustSeaTac - seaTac.minCustSeaTac + 1)) + seaTac.minCustSeaTac);
+};
+
+var custThatHourSeaTac = function() {
+  for(var i = 0; i < hours.length; i++) {
+    seaTac.hourlyCustomerSeaTac[i] = randomCustSeaTac();
+  }
+  console.log(seaTac.hourlyCustomerSeaTac);
+};
+
+custThatHourSeaTac();
+
+// Another option to fill hourlyCustomerSeaTac is by using push
+    //seaTac.hourlyCustomerSeaTac.push(randomCustSeaTac());
+
+// Calculate and store number of cookies purchased for a single hour and storer number of cookies sold per hour in hourlySalesSeaTac
+var cookiesSoldThatHourSeaTac = function () {
+  for(var i = 0; i < hours.length; i++) {
+    seaTac.hourlySalesSeaTac.push(seaTac.avgCookiesPerCustSeaTac * seaTac.hourlyCustomerSeaTac[i]);
+  }
+  console.log(seaTac.hourlySalesSeaTac);
+};
+
+cookiesSoldThatHourSeaTac();
+
+// Display the values of each Pike array as unordered lists in the browser
+seaTac.listSalesSeaTac = function() {
+  var seaTacID = document.getElementById('seaTacID');
+  for (var i = 0; i < hours.length; i++) {
+    console.log(seaTac.hourlySalesSeaTac[i]);
+    var listItem = document.createElement('li');
+    listItem.textContent = hours[i] + ': ' + Math.round(seaTac.hourlySalesSeaTac[i]) + ' cookies';
+    seaTacID.appendChild(listItem);
+  }
+};
+
+seaTac.listSalesSeaTac();
+
+seaTac.totalSales = 0;
+
+for (var i = 0; i < hours.length; i++) {
+  seaTac.totalSales += seaTac.hourlySalesSeaTac[i];
+};
+
+var listItem = document.createElement('li');
+listItem.textContent = 'Total: ' + Math.round(seaTac.totalSales) + ' cookies';
+seaTacID.appendChild(listItem);
+
+console.log(seaTac.totalSales);
+
+// // //
+// // // //
+// // // //
+// // //
+
+// Seattle Center Cookies Projection
+var seaCenter = {
+  minCustSeaCenter: 11,
+  maxCustSeaCenter: 38,
+  avgCookiesPerCustSeaCenter: 3.7,
+  hourlyCustomerSeaCenter: [],
+  hourlySalesSeaCenter: []
+};
+// method to generate random number of customers per hour and store number of customers per hour in hourlyCustomerSeaCenter
+var randomCustSeaCenter = function() {
+  return (Math.floor(Math.random() * (seaCenter.maxCustSeaCenter - seaCenter.minCustSeaCenter + 1)) + seaCenter.minCustSeaCenter);
+};
+
+var custThatHourSeaCenter = function() {
+  for(var i = 0; i < hours.length; i++) {
+    seaCenter.hourlyCustomerSeaCenter[i] = randomCustSeaCenter();
+  }
+  console.log(seaCenter.hourlyCustomerSeaCenter);
+};
+
+custThatHourSeaCenter();
+
+// Another option to fill hourlyCustomerSeaCenter is by using push
+    //seaCenter.hourlyCustomerSeaCenter.push(randomCustSeaCenter());
+
+// Calculate and store number of cookies purchased for a single hour and storer number of cookies sold per hour in hourlySalesSeaCenter
+var cookiesSoldThatHourSeaCenter = function () {
+  for(var i = 0; i < hours.length; i++) {
+    seaCenter.hourlySalesSeaCenter.push(seaCenter.avgCookiesPerCustSeaCenter * seaCenter.hourlyCustomerSeaCenter[i]);
+  }
+  console.log(seaCenter.hourlySalesSeaCenter);
+};
+
+cookiesSoldThatHourSeaCenter();
+
+// Display the values of each Pike array as unordered lists in the browser
+seaCenter.listSalesSeaCenter = function() {
+  var seaCenterID = document.getElementById('seaCenterID');
+  for (var i = 0; i < hours.length; i++) {
+    console.log(seaCenter.hourlySalesSeaCenter[i]);
+    var listItem = document.createElement('li');
+    listItem.textContent = hours[i] + ': ' + Math.round(seaCenter.hourlySalesSeaCenter[i]) + ' cookies';
+    seaCenterID.appendChild(listItem);
+  }
+};
+
+seaCenter.listSalesSeaCenter();
+
+seaCenter.totalSales = 0;
+
+for (var i = 0; i < hours.length; i++) {
+  seaCenter.totalSales += seaCenter.hourlySalesSeaCenter[i];
+};
+
+var listItem = document.createElement('li');
+listItem.textContent = 'Total: ' + Math.round(seaCenter.totalSales) + ' cookies';
+seaCenterID.appendChild(listItem);
+
+console.log(seaCenter.totalSales);
