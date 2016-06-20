@@ -21,6 +21,7 @@ var firstAndPike = {
   hourlySales: []
 };
 // method to generate random number of customers per hour
+// store number of customers per hour in hourlyCustomers
 var randomCust = function() {
   return (Math.floor(Math.random() * (firstAndPike.maxCust - firstAndPike.minCust + 1)) + firstAndPike.minCust);
 };
@@ -38,18 +39,28 @@ custThatHour();
     //firstAndPike.hourlyCustomers.push(randomCust());
 
 // Calculate and store number of cookies purchased for a single hour
-var cookiesSold = function () {
-  return custInHr * avgCookiesPerCust;
-  console.log(custInHr * avgCookiesPerCust);
+// stores number of cookies sold per hour in hourlySales
+var cookiesSoldThatHour = function () {
+  for(var i = 0; i < hours.length; i++) {
+    firstAndPike.hourlySales.push(firstAndPike.avgCookiesPerCust * firstAndPike.hourlyCustomers[i]);
+  }
+  console.log(firstAndPike.hourlySales);
 };
 
-//
-// Store the results for each location in a separate array... perhaps as a property of the object representing that location
-firstAndPike.cookiesSold = function() {
-  for(var i = 0; i < firstAndPike.hours.length; i++) {
-    console.log(hours[i]);
+cookiesSoldThatHour();
+
+// Display the values of each array as unordered lists in the browser
+
+firstAndPike.listSales = function() {
+  var pikeID = document.getElementById('pikeID');
+  for (var i = 0; i < hours.length; i++) {
+    console.log(firstAndPike.hourlySales[i]);
+    var listItem = document.createElement('li');
+    listItem.textContent = firstAndPike.hourlySales[i];
+    pikeID.appendChild(listItem);
   }
 };
 
+firstAndPike.listSales();
 // firstAndPike.hourlyCustomers.push(anElement) = function() {
 //   for(var j = 0; j < firstAndPike.hours.length; j++) {
