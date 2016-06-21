@@ -4,35 +4,72 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 
 // First and Pike Cookies Projection
 var firstAndPike = {
+  // Need to add locationName: 'First and Pike',
+  // can add identifier: 'firstandpike',
   minCustPike: 23,
   maxCustPike: 65,
   avgCookiesPerCustPike: 6.3,
-  hourlyCustomersPike: [],
-  hourlySalesPike: []
+  hourlyCustomersPikeArray: [],
+  hourlySalesPikeArray: []
+  // can move totalDailyCookieSales to this line
 };
-// method to generate random number of customers per hour and store number of customers per hour in hourlyCustomersPike
+// method to generate random number of customers per hour and store number of customers per hour in hourlyCustomersPikeArray
+  /* calcCustEachHour is actually calcHourlyCustomersPike in my nomenclature
+firstAndPike.calcHourlyCustomersPike = function() {
+  for(var i = 0; i < hours.length; i++) {
+    var randomCustPike = Math.floor(Math.random() * (firstAndPike.maxCustPike - firstAndPike.minCustPike + 1)) + firstAndPike.minCustPike;
+    firstAndPike.calcHourlyCustomersPike.push(randomCustPike);
+  }
+};
+firstAndPike.calcHourlyCustomersPike();
+
+firstAndPike.calcCookiesEachHour = function() {
+  firstAndPike.calcHourlyCustomersPike();
+  for(var i = 0; i < hours.length; i++) {
+    var cookiesSoldThatHourPike = firstAndPike.hourlyCustomersPikeArray[i] * firstAndPike.avgCookiesPerCustPike;
+    firstAndPike.hourlySalesPikeArray.push(cookiesSoldThatHourPike);
+    firstAndPike.totalSales += cookiesSoldThatHourPike;
+  }
+};
+firstAndPike.calcCookiesEachHour();
+
+firstAndPike.render = function() {
+  firstAndPike.calcCookiesEachHour();
+  for(var i = 0; i < hours.length; i++) {
+    var listItem = document.createElement('li');
+    listItem.textContent = firstAndPike.hourlySalesPikeArray[i]'
+    var pikeList = document.getElementById('pikeID');
+    pikeList.appendChild(listItem);
+  }
+  var totalListItem = document.createElement('li');
+  totalListItem.textContent = 'a string';
+  pikeList.appendChild(totalListItem);
+};
+
+firstAndPike.render();
+  */
 var randomCustPike = function() {
   return (Math.floor(Math.random() * (firstAndPike.maxCustPike - firstAndPike.minCustPike + 1)) + firstAndPike.minCustPike);
 };
 
 var custThatHourPike = function() {
   for(var i = 0; i < hours.length; i++) {
-    firstAndPike.hourlyCustomersPike[i] = randomCustPike();
+    firstAndPike.hourlyCustomersPikeArray[i] = randomCustPike();
   }
-  console.log(firstAndPike.hourlyCustomersPike);
+  console.log(firstAndPike.hourlyCustomersPikeArray);
 };
 
 custThatHourPike();
 
-// Another option to fill hourlyCustomersPike is by using push
-    //firstAndPike.hourlyCustomersPike.push(randomCustPike());
+// Another option to fill hourlyCustomersPikeArray is by using push
+    //firstAndPike.hourlyCustomersPikeArray.push(randomCustPike());
 
-// Calculate and store number of cookies purchased for a single hour and storer number of cookies sold per hour in hourlySalesPike
+// Calculate and store number of cookies purchased for a single hour and storer number of cookies sold per hour in hourlySalesPikeArray
 var cookiesSoldThatHourPike = function () {
   for(var i = 0; i < hours.length; i++) {
-    firstAndPike.hourlySalesPike.push(firstAndPike.avgCookiesPerCustPike * firstAndPike.hourlyCustomersPike[i]);
+    firstAndPike.hourlySalesPikeArray.push(firstAndPike.avgCookiesPerCustPike * firstAndPike.hourlyCustomersPikeArray[i]);
   }
-  console.log(firstAndPike.hourlySalesPike);
+  console.log(firstAndPike.hourlySalesPikeArray);
 };
 
 cookiesSoldThatHourPike();
@@ -41,9 +78,9 @@ cookiesSoldThatHourPike();
 firstAndPike.listSalesPike = function() {
   var pikeID = document.getElementById('pikeID');
   for (var i = 0; i < hours.length; i++) {
-    console.log(firstAndPike.hourlySalesPike[i]);
+    console.log(firstAndPike.hourlySalesPikeArray[i]);
     var listItem = document.createElement('li');
-    listItem.textContent = hours[i] + ': ' + Math.round(firstAndPike.hourlySalesPike[i]) + ' cookies';
+    listItem.textContent = hours[i] + ': ' + Math.round(firstAndPike.hourlySalesPikeArray[i]) + ' cookies';
     pikeID.appendChild(listItem);
   }
 };
@@ -53,7 +90,7 @@ firstAndPike.listSalesPike();
 firstAndPike.totalSales = 0;
 
 for (var i = 0; i < hours.length; i++) {
-  firstAndPike.totalSales += firstAndPike.hourlySalesPike[i];
+  firstAndPike.totalSales += firstAndPike.hourlySalesPikeArray[i];
 };
 
 var listItem = document.createElement('li');
