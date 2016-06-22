@@ -1,6 +1,7 @@
 // Global variables
 
 var hours = ['6:00am - 7:00am', '7:00am - 8:00am', '8:00am - 9:00am', '9:00am - 10:00am', '10:00am - 11:00am', '11:00am - 12:00pm', '12:00pm - 1:00pm', '1:00pm - 2:00pm', '2:00pm - 3:00pm', '3:00pm - 4:00pm', '4:00pm - 5:00pm', '5:00pm - 6:00pm','6:00pm - 7:00pm', '7:00pm - 8:00pm'];
+var cookieStandsArray = [];
 
 // Constructor to generate patCookiesLocation instances
 function PatCookiesLocation (locationName, minCust, maxCust, avgCookiesPerCust, iDPat) {
@@ -12,6 +13,7 @@ function PatCookiesLocation (locationName, minCust, maxCust, avgCookiesPerCust, 
   this.hourlyCustomersArray = [];
   this.hourlySalesArray = [];
   this.totalSales = 0;
+  cookieStandsArray.push(this);
 };
 
 // Prototype to generate hourly customers
@@ -32,7 +34,7 @@ PatCookiesLocation.prototype.calcHourlySales = function() {
 };
 
 // Prototype to trigger render of unordered list
-makeHeaderRow = function() {
+var makeHeaderRow = function() {
   var cookieTable = document.getElementById('patCookiesLocationTable');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
@@ -52,7 +54,6 @@ makeHeaderRow = function() {
 
   cookieTable.appendChild(trEl);
 };
-makeHeaderRow();
 
 PatCookiesLocation.prototype.render = function() {
   this.calcHourlyCustomers();
@@ -77,33 +78,18 @@ PatCookiesLocation.prototype.render = function() {
   cookieTable.appendChild(trEl);
 };
 
-  // for(var i = 0; i < hours.length; i++) {
-  //   var listItem = document.createElement('li');
-  //   listItem.textContent = hours[i] + ': ' + Math.round(this.hourlySalesArray[i]) + ' cookies';
-  //   var patCookieLocationList = document.getElementById(this.iDPat);
-  //   document.getElementById(this.iDPat).appendChild(listItem);
-  // }
-  // var totalListItem = document.createElement('li');
-  // totalListItem.textContent = 'Total: ' + Math.round(this.totalSales) + ' cookies';
-  // patCookieLocationList.appendChild(totalListItem);
-// };
-
-// All instances and calls of prototypes to calculate hourly customers, hourly sales, and then render on the page
+var wholeTable = function() {
+  makeHeaderRow();
+  for(var i = 0; i < cookieStandsArray.length; i++) {
+    cookieStandsArray[i].render();
+    console.log(cookieStandsArray[i]);
+  }
+};
+// pushed carts into array
 var firstAndPike = new PatCookiesLocation('First and Pike', 23, 65, 6.3, 'pikeID');
-firstAndPike.render();
-
 var seaTac = new PatCookiesLocation('SeaTac', 3, 24, 1.2, 'seaTacID');
-seaTac.render();
-
 var seaCenter = new PatCookiesLocation('Seattle Center', 11, 38, 3.7, 'seaCenterID');
-seaCenter.render();
-
 var capHill = new PatCookiesLocation('Capitol Hill', 20, 38, 2.3, 'capHillID');
-capHill.render();
-
 var alki = new PatCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
-alki.render();
-
-// Instead of rendering each individually, add each instance to an array (like allStoresArray) and create a function that generates sales numbers by calling the array. This call requires a for loop that calls allStoresArray[i].render(i); Then, call the 'generate sales numbers' function directly below makeHeaderRow at the bottom of the document
-
-// to color alternating lines, add ID to alternating trEL
+//appended to table
+wholeTable();
