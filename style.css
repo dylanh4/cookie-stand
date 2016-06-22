@@ -1,1 +1,25 @@
 /* Design of index.html webpage */
+
+* {
+  font-family: Helvetica, arial, sans-serif;
+  text-align: center;
+}
+
+h1, h2 {
+  text-align: left;
+}
+
+table {
+  border: 1px solid;
+  border-color: #dddddd;
+  margin: 0px;
+  padding: 0px;
+}
+
+th {
+  background-color: #dddddd;
+}
+
+table th {
+  min-width: 80px;
+}
