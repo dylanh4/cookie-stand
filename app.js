@@ -41,13 +41,12 @@ makeHeaderRow = function() {
   // cookieTable.appendChild(trEl);
 
   var thEl = document.createElement('th');
-  thEl.textContent = 'Daily location Total';
+  thEl.textContent = 'Daily Location Total';
   trEl.appendChild(thEl);
 
   for (var i = 0; i < hours.length; i++) {
     var thEl = document.createElement('th');
     thEl.textContent = hours[i];
-    console.log('table header', thEl);
     trEl.appendChild(thEl);
   };
 
