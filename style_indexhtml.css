@@ -46,20 +46,23 @@ a {
 .location {
   display: inline-block;
   text-align: center;
-  background-color: #a47645;
+  background-color: #60BF8D;
   border-radius: 20px 10px;
-  border: 0px;
   margin: 5px 5px;
-  padding: 10px;
+  padding: 0 10px;
+  padding-bottom: 15px;
   min-width: 140px;
+  transition: 750ms all;
+  location: pointer;
 }
 
 .location:hover {
-  border-color: : #0070FF;
-  border: 1px solid;
-  color: #588447;
+  background-color: #FFB76B;
 }
 
+.location h4 {
+  font-size: 110%;
+}
 .location div {
   font-size: 90%;
 }
