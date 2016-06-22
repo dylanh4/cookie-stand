@@ -107,9 +107,18 @@ function handleCookieForm(event) {
   var phoneNum = document.getElementById('phone_num');
 
   var newCookieStand = new PatCookiesLocation(locationName.value, minCust.value, maxCust.value, avgCookies.value, address.value, phoneNum.value);
-  console.log(cookieStandsArray);
+  // console.log(cookieStandsArray);
+//adding the new table row
   newCookieStand.render();
+//we're emptying the form
+  event.target.location_name.value = null;
+  event.target.min_cust.value = null;
+  event.target.max_cust.value = null;
+  event.target.avg_cookies.value = null;
+  event.target.add_address.value = null;
+  event.target.phone_num.value = null;
 
+  alert("You've added " + newCookieStand.locationName + " to the table!");
 }
 //listening for the click and handling click with handler above
 cookieForm.addEventListener('submit', handleCookieForm, false);
