@@ -1,1 +1,6 @@
 /* Design of index.html webpage */
+
+table {
+  border: 1px solid;
+  border-color: #dddddd;
+}

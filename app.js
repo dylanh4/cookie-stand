@@ -1,9 +1,9 @@
 // Global variables
 
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm', '7pm'];
+var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm','6:00pm', '7:00pm'];
 
 // Constructor to generate patCookiesLocation instances
-function patCookiesLocation (locationName, minCust, maxCust, avgCookiesPerCust, iDPat) {
+function PatCookiesLocation (locationName, minCust, maxCust, avgCookiesPerCust, iDPat) {
   this.locationName = locationName;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -15,7 +15,7 @@ function patCookiesLocation (locationName, minCust, maxCust, avgCookiesPerCust, 
 };
 
 // Prototype to generate hourly customers
-patCookiesLocation.prototype.calcHourlyCustomers = function() {
+PatCookiesLocation.prototype.calcHourlyCustomers = function() {
   for(var i = 0; i < hours.length; i++) {
     var randomCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     this.hourlyCustomersArray.push(randomCust);
@@ -23,7 +23,7 @@ patCookiesLocation.prototype.calcHourlyCustomers = function() {
 };
 
 // Prototype to generate hourly sales
-patCookiesLocation.prototype.calcHourlySales = function() {
+PatCookiesLocation.prototype.calcHourlySales = function() {
   for(var i = 0; i < hours.length; i++) {
     var cookiesSoldThatHour = this.hourlyCustomersArray[i] * this.avgCookiesPerCust;
     this.hourlySalesArray.push(cookiesSoldThatHour);
@@ -32,41 +32,75 @@ patCookiesLocation.prototype.calcHourlySales = function() {
 };
 
 // Prototype to trigger render of unordered list
-patCookiesLocation.prototype.render = function() {
-  for(var i = 0; i < hours.length; i++) {
-    var listItem = document.createElement('li');
-    listItem.textContent = hours[i] + ': ' + Math.round(this.hourlySalesArray[i]) + ' cookies';
-    var patCookieLocationList = document.getElementById(this.iDPat);
-    document.getElementById(this.iDPat).appendChild(listItem);
-  }
-  var totalListItem = document.createElement('li');
-  totalListItem.textContent = 'Total: ' + Math.round(this.totalSales) + ' cookies';
-  patCookieLocationList.appendChild(totalListItem);
+makeHeaderRow = function() {
+  var cookieTable = document.getElementById('patCookiesLocationTable');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = ' ';
+  trEl.appendChild(thEl);
+  // cookieTable.appendChild(trEl);
+
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Daily location Total';
+  trEl.appendChild(thEl);
+
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    console.log('table header', thEl);
+    trEl.appendChild(thEl);
+  };
+
+  cookieTable.appendChild(trEl);
+};
+makeHeaderRow();
+
+PatCookiesLocation.prototype.render = function() {
+  this.calcHourlyCustomers();
+  this.calcHourlySales();
+  var cookieTable = document.getElementById('patCookiesLocationTable');
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.locationName;
+  trEl.appendChild(tdEl);
+  // cookieTable.appendChild(trEl);
+
+  var tdEl = document.createElement('td');
+  tdEl.textContent = Math.round(this.totalSales);
+  trEl.appendChild(tdEl);
+
+  for (var i = 0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = Math.round(this.hourlySalesArray[i]);
+    trEl.appendChild(tdEl);
+  };
+
+  cookieTable.appendChild(trEl);
 };
 
+  // for(var i = 0; i < hours.length; i++) {
+  //   var listItem = document.createElement('li');
+  //   listItem.textContent = hours[i] + ': ' + Math.round(this.hourlySalesArray[i]) + ' cookies';
+  //   var patCookieLocationList = document.getElementById(this.iDPat);
+  //   document.getElementById(this.iDPat).appendChild(listItem);
+  // }
+  // var totalListItem = document.createElement('li');
+  // totalListItem.textContent = 'Total: ' + Math.round(this.totalSales) + ' cookies';
+  // patCookieLocationList.appendChild(totalListItem);
+// };
 
 // All instances and calls of prototypes to calculate hourly customers, hourly sales, and then render on the page
-var firstAndPike = new patCookiesLocation('First and Pike', 23, 65, 6.3, 'pikeID');
-firstAndPike.calcHourlyCustomers();
-firstAndPike.calcHourlySales();
+var firstAndPike = new PatCookiesLocation('First and Pike', 23, 65, 6.3, 'pikeID');
 firstAndPike.render();
 
-var seaTac = new patCookiesLocation('SeaTac', 3, 24, 1.2, 'seaTacID');
-seaTac.calcHourlyCustomers();
-seaTac.calcHourlySales();
+var seaTac = new PatCookiesLocation('SeaTac', 3, 24, 1.2, 'seaTacID');
 seaTac.render();
 
-var seaCenter = new patCookiesLocation('Seattle Center', 11, 38, 3.7, 'seaCenterID');
-seaCenter.calcHourlyCustomers();
-seaCenter.calcHourlySales();
+var seaCenter = new PatCookiesLocation('Seattle Center', 11, 38, 3.7, 'seaCenterID');
 seaCenter.render();
 
-var capHill = new patCookiesLocation('Capitol Hill', 20, 38, 2.3, 'capHillID');
-capHill.calcHourlyCustomers();
-capHill.calcHourlySales();
+var capHill = new PatCookiesLocation('Capitol Hill', 20, 38, 2.3, 'capHillID');
 capHill.render();
 
-var alki = new patCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
-alki.calcHourlyCustomers();
-alki.calcHourlySales();
+var alki = new PatCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
 alki.render();
