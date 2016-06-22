@@ -95,7 +95,7 @@ var alki = new PatCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
 wholeTable();
 //grabbing form
 var cookieForm = document.getElementById('cookie_form');
-
+//this is our cookie handler
 function handleCookieForm(event) {
   event.preventDefault();
   // console.log('I heard a click');
@@ -105,7 +105,7 @@ function handleCookieForm(event) {
   var avgCookies = document.getElementById('avg_cookies');
   var address = document.getElementById('add_address');
   var phoneNum = document.getElementById('phone_num');
-
+//adding the newCookieStand to the cookieStandsArray
   var newCookieStand = new PatCookiesLocation(locationName.value, minCust.value, maxCust.value, avgCookies.value, address.value, phoneNum.value);
   // console.log(cookieStandsArray);
 //adding the new table row
@@ -117,8 +117,8 @@ function handleCookieForm(event) {
   event.target.avg_cookies.value = null;
   event.target.add_address.value = null;
   event.target.phone_num.value = null;
-
-  alert("You've added " + newCookieStand.locationName + " to the table!");
+//alert to notify that store has been added
+  alert('You\'ve added ' + newCookieStand.locationName + ' to the table!');
 }
-//listening for the click and handling click with handler above
+//listening for the click and running handler above
 cookieForm.addEventListener('submit', handleCookieForm, false);
