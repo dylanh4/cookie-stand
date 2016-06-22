@@ -1,6 +1,6 @@
 // Global variables
 
-var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm','6:00pm', '7:00pm'];
+var hours = ['6:00am - 7:00am', '7:00am - 8:00am', '8:00am - 9:00am', '9:00am - 10:00am', '10:00am - 11:00am', '11:00am - 12:00pm', '12:00pm - 1:00pm', '1:00pm - 2:00pm', '2:00pm - 3:00pm', '3:00pm - 4:00pm', '4:00pm - 5:00pm', '5:00pm - 6:00pm','6:00pm - 7:00pm', '7:00pm - 8:00pm'];
 
 // Constructor to generate patCookiesLocation instances
 function PatCookiesLocation (locationName, minCust, maxCust, avgCookiesPerCust, iDPat) {
@@ -103,3 +103,7 @@ capHill.render();
 
 var alki = new PatCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
 alki.render();
+
+// Instead of rendering each individually, add each instance to an array (like allStoresArray) and create a function that generates sales numbers by calling the array. This call requires a for loop that calls allStoresArray[i].render(i); Then, call the 'generate sales numbers' function directly below makeHeaderRow at the bottom of the document
+
+// to color alternating lines, add ID to alternating trEL

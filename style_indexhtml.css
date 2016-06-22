@@ -3,6 +3,7 @@
 3. Specified different font colors for all three font usages
 4. A background color for the default page background (make sure font colors have good contrast and are readable on this background)
 5. A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!)
+6. add a store phone for each location
 */
 
 * {
@@ -48,14 +49,14 @@ a {
   background-color: #a47645;
   border-radius: 20px 10px;
   border: 0px;
-  margin: 0 5px;
+  margin: 5px 5px;
   padding: 10px;
   min-width: 140px;
 }
 
 .location:hover {
-  border-color: : #cfcecc;
-  border: 3px solid;
+  border-color: : #0070FF;
+  border: 1px solid;
   color: #588447;
 }
 
