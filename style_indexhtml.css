@@ -1,0 +1,64 @@
+/* still missing
+1. A specified standard san-serif web font for data (such as Arial, Verdana, or Helvetica)
+3. Specified different font colors for all three font usages
+4. A background color for the default page background (make sure font colors have good contrast and are readable on this background)
+5. A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!)
+*/
+
+* {
+  font-family: Times;
+  text-align: center;
+  color: #111111;
+}
+
+body {
+  background-color: #b28d48;
+}
+
+h1, h2 {
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  color: #1a0000;
+}
+
+a {
+  text-decoration: none;
+  color: #982b0c;
+}
+
+.data {
+  font-family: Helvetica;
+}
+
+.images_index {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.location_block {
+  display: block;
+  margin: 0 auto;
+}
+
+.location {
+  display: inline-block;
+  text-align: center;
+  background-color: #a47645;
+  border-radius: 20px 10px;
+  border: 0px;
+  margin: 0 5px;
+  padding: 10px;
+  min-width: 140px;
+}
+
+.location:hover {
+  border-color: : #cfcecc;
+  border: 3px solid;
+  color: #588447;
+}
+
+.location div {
+  font-size: 90%;
+}
