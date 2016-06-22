@@ -93,3 +93,23 @@ var capHill = new PatCookiesLocation('Capitol Hill', 20, 38, 2.3, 'capHillID');
 var alki = new PatCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
 //appended to table
 wholeTable();
+//grabbing form
+var cookieForm = document.getElementById('cookie_form');
+
+function handleCookieForm(event) {
+  event.preventDefault();
+  // console.log('I heard a click');
+  var locationName = document.getElementById('location_name');
+  var minCust = document.getElementById('min_cust');
+  var maxCust = document.getElementById('max_cust');
+  var avgCookies = document.getElementById('avg_cookies');
+  var address = document.getElementById('add_address');
+  var phoneNum = document.getElementById('phone_num');
+
+  var newCookieStand = new PatCookiesLocation(locationName.value, minCust.value, maxCust.value, avgCookies.value, address.value, phoneNum.value);
+  console.log(cookieStandsArray);
+  newCookieStand.render();
+
+}
+//listening for the click and handling click with handler above
+cookieForm.addEventListener('submit', handleCookieForm, false);
