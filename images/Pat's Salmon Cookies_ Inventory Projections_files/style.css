@@ -5,7 +5,6 @@
   font-family: Times, serif;
   text-align: center;
   color: #ffffff;
-  outline: 1px dashed red;
 }
 
 body {
@@ -30,9 +29,9 @@ header ul {
 main {
   max-width: 960px;
   min-width: 320px;
+  min-height: 600px;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: -80px;
   background-color: #b28d48;
 }
 
@@ -75,12 +74,10 @@ th {
 
 tr {
   max-width: 10%;
-  border: 3px solid #153865;
 }
 
 td {
   color: #111111;
-  border: 3px solid #153865;
 }
 
 td:first-of-type {

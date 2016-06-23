@@ -8,7 +8,7 @@
 
 /* Base Styles */
 * {
-  font-family: Times;
+  font-family: Times, serif;
   text-align: center;
   color: #ffffff;
   outline: 1px dashed red;
@@ -18,9 +18,6 @@ body {
   background-color: #ddd;
 }
 
-.clearfix {
-  clear: both;
-}
 /* Site Styles */
 
 /* Header Styles */
@@ -36,14 +33,6 @@ header ul {
   margin: 10px 0;
   padding-bottom: 0;
 }
-
-/*#inner_header {
-  max-width: 960px;
-  min-width: 320px;
-  width: 100%;
-  margin: 0 auto;
-  height: 50px;
-}*/
 
 /* Main Styles */
 main {
@@ -185,7 +174,6 @@ footer img {
 }
 
 footer ul {
-  /*padding: 20px 0px;*/
   padding-top: 20px
 }
 footer ul li {
