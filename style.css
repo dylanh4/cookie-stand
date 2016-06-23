@@ -23,7 +23,15 @@ header {
 
 header ul {
   margin: 10px 0;
-  padding-bottom: 0;
+  padding-bottom: 0
+}
+
+header ul li:nth-of-type(1) {
+  font-size: 80%;
+}
+
+header ul li:nth-of-type(2) {
+  font-size: 60%;
 }
 
 /* Main Styles */
@@ -38,6 +46,15 @@ main {
 
 h1, h2 {
   text-align: left;
+  font-size: 50%;
+}
+
+span {
+  float: right;
+  font-size: 50%;
+  position: relative;
+  bottom: 35px;
+  right: 20px;
 }
 
 /* form items */
