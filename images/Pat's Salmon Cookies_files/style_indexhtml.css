@@ -1,0 +1,109 @@
+/* still missing
+1. A specified standard san-serif web font for data (such as Arial, Verdana, or Helvetica)
+3. Specified different font colors for all three font usages
+4. A background color for the default page background (make sure font colors have good contrast and are readable on this background)
+5. A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!)
+6. add a store phone for each location
+*/
+
+/* Base Styles */
+* {
+  font-family: Times;
+  text-align: center;
+  color: #111111;
+  outline: 1px dashed red;
+}
+
+body {
+  background-color: #b28d48;
+}
+
+/* Site Styles */
+
+/* Header Styles */
+header {
+  background-color: #4876B2;
+  height: 50px;
+}
+
+#inner_header {
+  max-width: 960px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  height: 50px;
+}
+
+/* Main Styles */
+main {
+  max-width: 960px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#banner {
+  width: 960px;
+}
+
+#banner_image {
+  height: auto;
+  max-width: 100%;
+  opacity: .5;
+}
+
+h1, h2 {
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  color: #1a0000;
+
+}
+
+a {
+  text-decoration: none;
+  color: #982b0c;
+}
+
+.data {
+  font-family: Helvetica;
+}
+
+.images_index {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.location_block {
+  // make this into ul
+  display: block;
+  margin: 0 auto;
+}
+
+.location {
+  // make this into main ul li
+  display: inline-block;
+  text-align: center;
+  background-color: #4876B2;
+  border-radius: 20px 10px;
+  margin: 5px 5px;
+  padding: 0 10px;
+  padding-bottom: 15px;
+  min-width: 140px;
+  max-width: 200px;
+  transition: 750ms all;
+  location: pointer;
+  color: white;
+}
+
+.location:hover {
+  background-color: #FFB76B;
+}
+
+.location h4 {
+  font-size: 110%;
+}
+.location div {
+  font-size: 90%;
+}

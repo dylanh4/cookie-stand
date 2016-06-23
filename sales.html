@@ -3,12 +3,16 @@
 <html>
   <head>
     <title>Pat's Salmon Cookies: Inventory Projections</title>
+    <link rel='stylesheet' href='reset_style.css'>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Pat's Salmon Cookies: Inventory Projections</h1>
-    <h2>Cookies Needed by Location Each Day</h2>
-    <form id="cookie_form">
+    <header>
+      <h1>Pat's Salmon Cookies: Inventory Projections</h1>
+      <h2>Cookies Needed by Location Each Day</h2>
+    </header>
+    <main>
+      <form id="cookie_form">
         <label for="location_name">Store Name:</label>
         <input id="location_name" type="text" name="location_name" required>
         <label for="min_cust">Min Customers:</label>
@@ -22,8 +26,12 @@
         <label for="phone_num">Phone Number:</label>
         <input id="phone_num" type="text" name="phone_num" required>
         <input type="submit" value="submit">
-    </form>
-    <table id="patCookiesLocationTable"></table>
+      </form>
+      <table id="patCookiesLocationTable"></table>
+    </main>
+    <footer>
+      
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>

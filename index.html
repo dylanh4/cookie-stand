@@ -3,40 +3,75 @@
 <head>
   <title>Pat's Salmon Cookies</title>
   <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='reset_style.css'>
   <link rel='stylesheet' href='style_indexhtml.css'>
 </head>
 <body>
-  <h1>Take a bite of the Pacific Northwest!</h1>
-  <h2>Pat's Salmon Cookies are a truly unique Seattle Treat</h2>
-  <p>A coffee-time confection, these cookies are the perfect match for a piping hot cup of coffee on a gray Seattle morning.</p>
-  <img src='../cookie-stand/images/frosted-cookie.jpg' alt='Beautiful Salmon Cookies Fresh Out of the Oven' class='images_index'>
-  <h2>Find us at one of our five locations</h2>
-  <section class="location_block">
-    <a href="https://goo.gl/maps/obrXwTCrNC32" target="_blank"><section class="location">
-      <h4>First and Pike</h4>
-      <div>1427 1st Ave</div>
-      <div>Seattle, WA 98101</div>
-    </section></a>
-    <a href="https://goo.gl/maps/Rsj4xJDTp5m" target="_blank"><section class="location">
-      <h4>SeaTac Airport</h4>
-      <div>Gate A4, SeaTac Airport</div>
-      <div>Seattle, WA 98158</div>
-    </section></a>
-    <a href="https://goo.gl/maps/i5eXcbnc3fH2" target="_blank"><section class="location">
-      <h4>Seattle Center</h4>
-      <div>305 Harrison Street</div>
-      <div>Seattle, WA 98109</div>
-    </section></a>
-    <a href="https://goo.gl/maps/p5KDmWm4rs22" target="_blank"><section class="location">
-      <h4>Capitol Hill</h4>
-      <div>1463 E Republican Street</div>
-      <div>Seattle, WA 98112</div>
-    </section></a>
-    <a href="https://goo.gl/maps/okaHzzT8iDF2" target="_blank"><section class="location">
-      <h4>Alki Beach</h4>
-      <div>2738 Alki Ave SW</div>
-      <div>Seattle, WA 98116</div>
-    </section></a>
-  </section>
+  <header>
+    <ul>
+      <li>Pat's Salmon Cookies</li>
+    </ul>
+  </header>
+  <main>
+    <section id="banner">
+      <img id="banner_image" src="https://raw.githubusercontent.com/codefellows/seattle-201d8/master/class-09-advanced_css_layout/lab/assets/salmon.png">
+      <section id="banner_text">
+        <h1>Take a bite of the Pacific Northwest!</h1>
+        <h2>Pat's Salmon Cookies are a truly unique Seattle Treat</h2>
+      </section>
+    </section>
+    <h5>A coffee-time confection, these cookies are the perfect match for a piping hot cup of coffee on a gray Seattle morning.</h5>
+    <h3>Find us at one of our five locations</h3>
+    <ul>
+      <a href="https://goo.gl/maps/obrXwTCrNC32" target="_blank"><ul class="location">
+        <li>First and Pike</li>
+        <li>1427 1st Ave</li>
+        <li>Seattle, WA 98101</li>
+      </ul></a>
+      <a href="https://goo.gl/maps/Rsj4xJDTp5m" target="_blank"><ul class="location">
+        <li>SeaTac Airport</li>
+        <li>Gate A4, SeaTac Airport</li>
+        <li>Seattle, WA 98158</li>
+      </ul></a>
+      <a href="https://goo.gl/maps/i5eXcbnc3fH2" target="_blank"><ul class="location">
+        <li>Seattle Center</li>
+        <li>305 Harrison Street</li>
+        <li>Seattle, WA 98109</li>
+      </ul></a>
+      <a href="https://goo.gl/maps/p5KDmWm4rs22" target="_blank"><ul class="location">
+        <li>Capitol Hill</li>
+        <li>1463 E Republican Street</li>
+        <li>Seattle, WA 98112</li>
+      </ul></a>
+      <a href="https://goo.gl/maps/okaHzzT8iDF2" target="_blank"><ul class="location">
+        <li>Alki Beach</li>
+        <li>2738 Alki Ave SW</li>
+        <li>Seattle, WA 98116</li>
+      </ul></a>
+    </ul>
+    <h3>Go Beyond the Cookie</h3>
+    <ul>
+      <li class="image_subBanner">
+        <img src="https://raw.githubusercontent.com/codefellows/seattle-201d8/master/class-09-advanced_css_layout/lab/assets/frosted-cookie.jpg" alt="Give One of Pat's Take-Home Baking Boxes and Suprise Your Friends">
+        <span>Give One of Pat's Take-Home Baking Boxes and Suprise Your Friends</span>
+      </li>
+      <li class="image_subBanner">
+        <img src="https://raw.githubusercontent.com/codefellows/seattle-201d8/master/class-09-advanced_css_layout/lab/assets/shirt.jpg" alt="Buy one of our nifty t-shirts!" title="Pat's Salmon Cookies T-Shirts Available In-Store">
+        <span>Pat's Salmon Cookies T-Shirts Available In-Store</span>
+      </li>
+      <li class="image_subBanner">
+        <img src="https://raw.githubusercontent.com/codefellows/seattle-201d8/master/class-09-advanced_css_layout/lab/assets/family.jpg" title="Take a Cookie Baking Class With Us!">
+        <span>Take a Cookie Baking Class With Us!</span>
+      </li>
+    </ul>
+  </main>
+  <footer>
+      <ul>
+        <li>Corporate Office:</li>
+        <li>123 Magnolia St.</li>
+        <li>Seattle, WA 98103</li>
+        <li>(206) COO-KIES1</li>
+      </ul>
+  </footer>
 </body>
 </html>
