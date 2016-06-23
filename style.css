@@ -5,7 +5,6 @@
   font-family: Times, serif;
   text-align: center;
   color: #ffffff;
-  outline: 1px dashed red;
 }
 
 body {
@@ -64,6 +63,8 @@ span {
 
 input {
   margin: 5px 5px;
+  color: #111111;
+  font-size: 12px;
 }
 
 input:nth-of-type(7) {

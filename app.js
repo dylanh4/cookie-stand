@@ -40,7 +40,6 @@ var makeHeaderRow = function() {
   var thEl = document.createElement('th');
   thEl.textContent = ' ';
   trEl.appendChild(thEl);
-  // cookieTable.appendChild(trEl);
 
   var thEl = document.createElement('th');
   thEl.textContent = 'Daily Location Total';
@@ -63,7 +62,6 @@ PatCookiesLocation.prototype.render = function() {
   var tdEl = document.createElement('td');
   tdEl.textContent = this.locationName;
   trEl.appendChild(tdEl);
-  // cookieTable.appendChild(trEl);
 
   var tdEl = document.createElement('td');
   tdEl.textContent = Math.round(this.totalSales);
@@ -91,14 +89,16 @@ var seaTac = new PatCookiesLocation('SeaTac', 3, 24, 1.2, 'seaTacID');
 var seaCenter = new PatCookiesLocation('Seattle Center', 11, 38, 3.7, 'seaCenterID');
 var capHill = new PatCookiesLocation('Capitol Hill', 20, 38, 2.3, 'capHillID');
 var alki = new PatCookiesLocation('Alki', 2, 16, 4.6, 'alkiID');
+
 //appended to table
 wholeTable();
+
 //grabbing form
 var cookieForm = document.getElementById('cookie_form');
+
 //this is our cookie handler
 function handleCookieForm(event) {
   event.preventDefault();
-  // console.log('I heard a click');
   var locationName = document.getElementById('location_name');
   var minCust = document.getElementById('min_cust');
   var maxCust = document.getElementById('max_cust');
@@ -107,9 +107,10 @@ function handleCookieForm(event) {
   var phoneNum = document.getElementById('phone_num');
 //adding the newCookieStand to the cookieStandsArray
   var newCookieStand = new PatCookiesLocation(locationName.value, minCust.value, maxCust.value, avgCookies.value, address.value, phoneNum.value);
-  // console.log(cookieStandsArray);
+
 //adding the new table row
   newCookieStand.render();
+
 //we're emptying the form
   event.target.location_name.value = null;
   event.target.min_cust.value = null;
